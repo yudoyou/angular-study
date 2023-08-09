@@ -1,0 +1,42 @@
+<div class="hello-world">
+    <h1>{{title}}</h1>
+    <h1>hello world</h1>
+    <h2 [ngStyle]="myStyles">hello angular</h2>
+    <h3 [class.textcolor]="hasTextStyle">hello angular1</h3>
+    <h3 [class]="myStyles1">hello angular2</h3>
+    <h3>{{ birth | date:"MM/dd/yy" }}</h3>
+    <button (click)="logInfo($event, 6);logInfo1()">按钮</button>
+    <h3 class={{cssName1}}>1111</h3>
+    <ul>
+        <li *ngFor="let item of arr;
+                        let i = index;
+                        let counts = count;
+                        first as isFirst;
+                        last as isLast;
+                        odd as isOdd;
+                        even as isEven">
+            <span>数组每一项：{{item}}</span> |
+            <span>下标：{{i}}</span> |
+            <span>总条数：{{counts}}</span> |
+            <span>是第一个元素：{{isFirst}}</span> |
+            <span>为最后一个元素：{{isLast}}</span> |
+            <span>为奇数：{{isOdd}}</span> |
+            <span>为偶数：{{isEven}}</span>
+        </li>
+    </ul>
+    <input [(ngModel)]="val"><button (click)="getVal($event)">获取值</button>
+    <h1 [ngStyle]="myStyles">ngStyle</h1>
+    <h1 [ngClass]="myStyles1">ngClass</h1>
+    <h1 *ngIf="val > 10">val大于10</h1>
+    <button (click)="val = val + 1; val1 = val1 + 1">模板语句</button>
+    <h1>{{val}}--{{val1}}</h1>
+    ----------------
+    <input type="text" #sizeInput [class]="'textcolor weight'">{{sizeInput.value}}
+    <ng-container><div>{{size}}</div></ng-container>
+    
+    <app-child [birth]="birth" (sendChild)="getChild($event)" [(size)]="size">
+        <div>单槽</div>
+        <div>单槽</div>
+        <div selector>多槽🌷</div>
+    </app-child>
+</div>
